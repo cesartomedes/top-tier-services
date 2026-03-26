@@ -1,9 +1,6 @@
 import { Link } from "react-router-dom";
 import {
   FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaYelp,
   FaPhone,
   FaEnvelope,
   FaMapMarkerAlt,
@@ -173,18 +170,13 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Follow Us</h3>
             <div className="flex space-x-4 mb-6">
               <a
-                href="#"
+                href="https://www.facebook.com/share/1746For1yC/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-300 hover:text-primary transition-colors text-2xl"
                 aria-label="Facebook"
               >
                 <FaFacebook />
-              </a>
-              <a
-                href="#"
-                className="text-gray-300 hover:text-primary transition-colors text-2xl"
-                aria-label="Instagram"
-              >
-                <FaInstagram />
               </a>
             </div>
             <div className="bg-primary/10 rounded-lg p-3 text-center">

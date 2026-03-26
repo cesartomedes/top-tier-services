@@ -18,24 +18,12 @@ const Navbar = () => {
     <nav className="bg-primary text-white shadow-lg sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
-          <Link to="/" className="hover:opacity-90 transition-opacity flex items-center">
-            <img 
-              src="/logo.png" 
-              alt="Top Tier Services Logo" 
-              className="h-12 md:h-14 w-auto object-contain"
-              onError={(e) => {
-                console.log("Logo not found, showing text fallback");
-                e.target.style.display = 'none';
-                const parent = e.target.parentElement;
-                if (parent) {
-                  const fallback = document.createElement('span');
-                  fallback.className = "text-2xl font-bold";
-                  fallback.textContent = "Top Tier Services";
-                  parent.appendChild(fallback);
-                }
-              }}
-            />
+          {/* Logo - Text in Uppercase */}
+          <Link 
+            to="/" 
+            className="text-2xl font-bold hover:opacity-90 transition-opacity tracking-wide"
+          >
+            TOP TIER SERVICES
           </Link>
 
           {/* Rating Badge */}
