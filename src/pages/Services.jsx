@@ -188,7 +188,7 @@ const Services = () => {
       description:
         "Premium gutter protection systems that prevent clogs, reduce maintenance, and extend gutter life.",
       features: [
-        "40-year warranty",
+        "Lifetime warranty",
         "Micro-mesh technology",
         "Stainless steel construction",
         "Prevents all debris types",
@@ -209,7 +209,7 @@ const Services = () => {
           "Custom gutter guard selection based on your home's needs",
           "Professional installation by certified technicians",
           "Final inspection and demonstration",
-          "40-year warranty registration",
+          "Lifetime warranty registration",
         ],
       },
     },
@@ -300,7 +300,7 @@ const Services = () => {
           "Enhances curb appeal and home value",
           "Protects against water damage and leaks",
           "Weather-resistant installation for North Carolina conditions",
-          "20-year manufacturer warranty on materials",
+          "Lifetime warranty on materials",
         ],
         process: [
           "Free roof inspection and assessment",
@@ -310,8 +310,8 @@ const Services = () => {
           "Final inspection and cleanup",
         ],
         materials: [
-          "Architectural Asphalt Shingles - 30-year warranty",
-          "Metal Roofing - 40-year warranty",
+          "Architectural Asphalt Shingles - Lifetime warranty",
+          "Metal Roofing - Lifetime warranty",
           "Flat Roof Systems - EPDM, TPO",
           "Premium Impact-Resistant Shingles",
         ],
@@ -425,9 +425,9 @@ const Services = () => {
   const whyChooseUs = [
     {
       icon: <FaShieldAlt />,
-      title: "40-Year Warranty",
+      title: "Lifetime Warranty",
       description:
-        "Comprehensive warranty coverage on all gutter guard installations",
+        "Comprehensive lifetime warranty coverage on all gutter guard installations",
     },
     {
       icon: <FaStar />,
@@ -468,8 +468,8 @@ const Services = () => {
 
   return (
     <div>
-     {/* Hero Section with Background Image */}
-     <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
+      {/* Hero Section with Background Image */}
+      <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -492,7 +492,7 @@ const Services = () => {
           <div className="max-w-2xl mx-auto">
             <p className="text-lg text-white/90 leading-relaxed">
               From premium gutter protection to complete home renovations, 
-              we provide expert services backed by 40 years of combined experience.
+              we provide expert services backed by years of combined experience.
             </p>
           </div>
           <div className="mt-8">
@@ -502,6 +502,13 @@ const Services = () => {
             >
               Schedule Free Inspection
             </Link>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-white rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </section>
@@ -622,7 +629,7 @@ const Services = () => {
       <section className="py-16 bg-primary text-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-white mb-4">Why Choose Top Tier Services?</h2>
+            <h2 className="text-white mb-4">Why Choose Top Tier Home Services?</h2>
             <p className="text-white/90 text-lg max-w-2xl mx-auto">
               Experience the difference with professional service and quality
               workmanship

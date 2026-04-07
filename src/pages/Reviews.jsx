@@ -28,14 +28,14 @@ const Reviews = () => {
       name: "Jennifer Martinez",
       location: "Raleigh, NC",
       rating: 5,
-      text: "Absolutely outstanding service! The team was professional, punctual, and the installation looks fantastic. My gutters have never worked better. Highly recommend Top Tier Services!",
+      text: "Absolutely outstanding service! The team was professional, punctual, and the installation looks fantastic. My gutters have never worked better. Highly recommend Top Tier Home Services!",
       date: "2 weeks ago",
     },
     {
       name: "David Thompson",
       location: "Durham, NC",
       rating: 5,
-      text: "Best investment I've made for my home. No more climbing ladders to clean gutters. The 40-year warranty gives me peace of mind. The spring sale coupon saved us money too!",
+      text: "Best investment I've made for my home. No more climbing ladders to clean gutters. The lifetime warranty gives me peace of mind. The spring sale coupon saved us money too!",
       date: "1 month ago",
     },
     {
@@ -56,7 +56,7 @@ const Reviews = () => {
       name: "Sarah Williams",
       location: "Cary, NC",
       rating: 5,
-      text: "I'm so glad I found Top Tier Services. They made the whole process easy and stress-free. The spring sale coupon was a great bonus. Highly recommend!",
+      text: "I'm so glad I found Top Tier Home Services. They made the whole process easy and stress-free. The spring sale coupon was a great bonus. Highly recommend!",
       date: "2 weeks ago",
     },
     {
@@ -130,7 +130,7 @@ const Reviews = () => {
             <FaGoogle className="text-primary text-5xl mx-auto mb-3" />
             <h2 className="text-primary mb-4">Google Reviews</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              What our customers are saying about Top Tier Services
+              What our customers are saying about Top Tier Home Services
             </p>
             <div className="flex justify-center items-center gap-2 mt-4">
               <div className="flex gap-1">
@@ -255,7 +255,7 @@ const Reviews = () => {
                       onChange={handleChange}
                       required
                       className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
-                      placeholder="(919) 555-0123"
+                      placeholder="(336) 350-9825"
                     />
                   </div>
                 </div>
@@ -285,7 +285,7 @@ const Reviews = () => {
                 </div>
 
                 <p className="text-xs text-gray-500 text-center mt-4">
-                  By submitting this form, you agree to be contacted by Top Tier Services.
+                  By submitting this form, you agree to be contacted by Top Tier Home Services.
                 </p>
               </form>
             )}
@@ -297,7 +297,7 @@ const Reviews = () => {
       <section className="py-12 bg-gray-50">
         <div className="container-custom text-center">
           <p className="text-gray-600 mb-4">
-            Ready to experience the Top Tier difference?
+            Ready to experience the Top Tier Home Services difference?
           </p>
           <Link
             to="/contact"

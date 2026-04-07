@@ -57,7 +57,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Top Tier Services</h3>
+            <h3 className="text-xl font-bold mb-4">Top Tier Home Services</h3>
             <p className="text-gray-300 mb-4">
               Professional gutter guard installation services with quality and
               excellence.
@@ -230,7 +230,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-700 pt-6 text-center text-gray-400">
           <p className="text-sm">
-            &copy; {currentYear} Top Tier Services. All rights reserved.
+            &copy; {currentYear} Top Tier Home Services. All rights reserved.
           </p>
           <p className="text-xs mt-2">
             Professional Gutter Guard Installation | Serving Haw River and

@@ -177,7 +177,7 @@ const Inspection = () => {
                           onChange={handleChange}
                           required
                           className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
-                          placeholder="(919) 555-0123"
+                          placeholder="(336) 350-9825"
                         />
                       </div>
                     </div>
@@ -261,7 +261,7 @@ const Inspection = () => {
                     </button>
 
                     <p className="text-xs text-gray-500 text-center">
-                      By submitting this form, you agree to be contacted by Top Tier Services.
+                      By submitting this form, you agree to be contacted by Top Tier Home Services.
                     </p>
                   </form>
                 )}
@@ -318,7 +318,7 @@ const Inspection = () => {
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
                     <FaShieldAlt className="text-primary text-xl" />
-                    <span className="text-gray-700 text-sm">40-Year Warranty</span>
+                    <span className="text-gray-700 text-sm">Lifetime Warranty</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <FaStar className="text-yellow-500 text-xl" />

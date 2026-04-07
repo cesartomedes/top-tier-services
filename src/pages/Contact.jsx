@@ -297,7 +297,7 @@ const Contact = () => {
               </div>
 
               {/* Service Areas */}
-              <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
+              {/* <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
                 <h3 className="text-xl font-bold text-primary mb-4">
                   Service Areas
                 </h3>
@@ -312,14 +312,14 @@ const Contact = () => {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
 
               {/* Trust Badge */}
               <div className="bg-primary rounded-2xl shadow-xl p-6 text-white text-center">
                 <FaShieldAlt className="text-4xl mx-auto mb-2" />
                 <p className="font-semibold">Licensed & Insured</p>
                 <p className="text-xs text-white/80 mt-1">
-                  40-Year Warranty on all installations
+                  Lifetime Warranty on all installations
                 </p>
               </div>
             </div>

@@ -23,7 +23,7 @@ const Navbar = () => {
             to="/" 
             className="text-2xl font-bold hover:opacity-90 transition-opacity tracking-wide"
           >
-            TOP TIER SERVICES
+            TOP TIER HOME SERVICES
           </Link>
 
           {/* Rating Badge */}

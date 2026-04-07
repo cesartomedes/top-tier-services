@@ -19,9 +19,22 @@ import {
 const Home = () => {
   // Service areas
   const serviceAreas = [
-    "Burlington", "Hillsborough", "Chapel Hill", "Greensboro", "Raleigh",
-    "Durham", "Cary", "Apex", "High Point", "Siler City", "Mebane",
-    "Haw River", "Pittsboro", "Winston Salem", "Kernersville", "Asheboro"
+    "Burlington",
+    "Hillsborough",
+    "Chapel Hill",
+    "Greensboro",
+    "Raleigh",
+    "Durham",
+    "Cary",
+    "Apex",
+    "High Point",
+    "Siler City",
+    "Mebane",
+    "Haw River",
+    "Pittsboro",
+    "Winston Salem",
+    "Kernersville",
+    "Asheboro",
   ];
 
   // Reviews
@@ -31,22 +44,22 @@ const Home = () => {
       location: "Raleigh, NC",
       text: "Absolutely amazing service! The team was professional, on time, and the gutter guards work perfectly. No more climbing ladders to clean gutters!",
       rating: 5,
-      date: "2 weeks ago"
+      date: "2 weeks ago",
     },
     {
       name: "David T.",
       location: "Durham, NC",
-      text: "Best decision we made for our home. The installation was quick and the 40-year warranty gives us peace of mind. Highly recommend!",
+      text: "Best decision we made for our home. The installation was quick and the lifetime warranty gives us peace of mind. Highly recommend!",
       rating: 5,
-      date: "1 month ago"
+      date: "1 month ago",
     },
     {
       name: "Lisa R.",
       location: "Chapel Hill, NC",
       text: "From the free inspection to the final installation, everything was seamless. The spring sale coupon saved us money too!",
       rating: 5,
-      date: "3 weeks ago"
-    }
+      date: "3 weeks ago",
+    },
   ];
 
   // Benefits of gutters
@@ -62,7 +75,7 @@ const Home = () => {
     "Increases home value",
     "Low maintenance solution",
     "Environmentally friendly",
-    "Long-term cost savings"
+    "Long-term cost savings",
   ];
 
   return (
@@ -89,9 +102,9 @@ const Home = () => {
             <span className="text-white/90">★★★★★</span>
             <span className="text-sm">(150+ reviews)</span>
           </div> */}
-          
+
           <h1 className="mb-4 animate-fadeInDown text-4xl md:text-5xl lg:text-6xl text-white">
-            Top Tier Services
+            Top Tier Home Services
           </h1>
           <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto animate-fadeInUp text-white">
             Family-Owned & Operated Since 2017
@@ -99,14 +112,16 @@ const Home = () => {
           <p className="text-lg mb-8 max-w-2xl mx-auto text-white/90">
             Expert Gutter Protection & Construction Services
           </p>
-          
+
           {/* Spring Sale Coupon */}
           <div className="bg-yellow-500 text-secondary rounded-lg p-4 max-w-md mx-auto mb-6 animate-pulse">
             <p className="font-bold text-lg">🌷 SPRING SALE! 🌷</p>
-            <p className="text-sm">Save 20% on all gutter guard installations</p>
+            <p className="text-sm">
+              Save 20% on all gutter guard installations
+            </p>
             <p className="text-xs mt-1">Limited time offer - Call today!</p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/inspection"
@@ -136,31 +151,47 @@ const Home = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-primary mb-4">About Top Tier Services</h2>
+              <h2 className="text-primary mb-4">
+                About Top Tier Home Services
+              </h2>
               <p className="text-gray-700 mb-4 text-lg">
-                Founded in 2017, Top Tier Services is a family-owned business dedicated to providing exceptional gutter protection and construction services across North Carolina.
+                Founded in 2017, Top Tier Home Services is a family-owned
+                business dedicated to providing exceptional gutter protection
+                and construction services across North Carolina.
               </p>
               <p className="text-gray-700 mb-4">
-                As industry experts with deep roots in the construction industry, we understand the unique challenges that North Carolina homes face. Our family values mean we treat every home as if it were our own.
+                As industry experts with deep roots in the construction
+                industry, we understand the unique challenges that North
+                Carolina homes face. Our family values mean we treat every home
+                as if it were our own.
               </p>
               <div className="grid grid-cols-2 gap-4 mt-6">
                 <div className="bg-primary/5 p-4 rounded-lg">
                   <FaHome className="text-primary text-2xl mb-2" />
                   <p className="font-semibold">Gutter Experts</p>
-                  <p className="text-sm text-gray-600">40-year warranty on all installations</p>
+                  <p className="text-sm text-gray-600">
+                    Lifetime warranty on all installations
+                  </p>
                 </div>
                 <div className="bg-primary/5 p-4 rounded-lg">
                   <FaHardHat className="text-primary text-2xl mb-2" />
                   <p className="font-semibold">Construction Services</p>
-                  <p className="text-sm text-gray-600">Roofing, Painting, Siding & Remodels</p>
+                  <p className="text-sm text-gray-600">
+                    Roofing, Painting, Siding & Remodels
+                  </p>
                 </div>
               </div>
             </div>
             <div className="bg-gray-100 rounded-lg p-8">
               <div className="text-center mb-4">
                 <FaShieldAlt className="text-primary text-5xl mx-auto mb-3" />
-                <h3 className="text-2xl font-bold text-primary">40-Year Warranty</h3>
-                <p className="text-gray-600 mt-2">Peace of mind with our comprehensive warranty coverage</p>
+                <h3 className="text-2xl font-bold text-primary">
+                  Lifetime Warranty
+                </h3>
+                <p className="text-gray-600 mt-2">
+                  Peace of mind with our comprehensive lifetime warranty
+                  coverage
+                </p>
               </div>
             </div>
           </div>
@@ -173,14 +204,10 @@ const Home = () => {
           <div className="text-center mb-10">
             <FaTruck className="text-primary text-4xl mx-auto mb-3" />
             <h2 className="text-primary mb-2">Our Service Areas</h2>
-            <p className="text-gray-600">Serving communities across North Carolina</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {serviceAreas.map((area, index) => (
-              <div key={index} className="bg-white rounded-lg p-3 text-center shadow-sm hover:shadow-md transition-shadow">
-                <p className="text-gray-700 font-medium">{area}</p>
-              </div>
-            ))}
+            <p className="text-gray-600">
+              Serving communities across North Carolina{" "}
+              <span className="text-primary font-semibold">and more!</span>
+            </p>
           </div>
         </div>
       </section>
@@ -191,22 +218,27 @@ const Home = () => {
           <div className="text-center mb-10">
             <FaLeaf className="text-primary text-4xl mx-auto mb-3" />
             <h2 className="text-primary mb-2">12 Benefits of Gutter Guards</h2>
-            <p className="text-gray-600">Why every home needs proper gutter protection</p>
+            <p className="text-gray-600">
+              Why every home needs proper gutter protection
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {gutterBenefits.map((benefit, index) => (
-              <div key={index} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div
+                key={index}
+                className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg"
+              >
                 <FaCheckCircle className="text-primary text-green-500 flex-shrink-0" />
                 <span className="text-gray-700 text-sm">{benefit}</span>
               </div>
             ))}
           </div>
           <div className="text-center mt-8">
-            <img 
-              src="/images/gutter-leaves-out.jpg" 
+            <img
+              src="/images/gutter-leaves-out.jpg"
               alt="Gutter protection prevents leaves and debris"
               className="max-w-md mx-auto rounded-lg shadow-md"
-              onError={(e) => e.target.style.display = 'none'}
+              onError={(e) => (e.target.style.display = "none")}
             />
           </div>
         </div>
@@ -222,11 +254,16 @@ const Home = () => {
                 <FaStar key={i} className="text-yellow-400 text-xl" />
               ))}
             </div>
-            <p className="text-white/90">Rated 4.9 out of 5 based on 150+ reviews</p>
+            <p className="text-white/90">
+              Rated 4.9 out of 5 based on 150+ reviews
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {reviews.map((review, index) => (
-              <div key={index} className="bg-white text-gray-800 rounded-lg p-6 shadow-lg">
+              <div
+                key={index}
+                className="bg-white text-gray-800 rounded-lg p-6 shadow-lg"
+              >
                 <FaQuoteLeft className="text-primary/30 text-2xl mb-3" />
                 <p className="italic mb-4">"{review.text}"</p>
                 <div className="flex items-center justify-between">
@@ -277,7 +314,9 @@ const Home = () => {
               Get Free Quote
             </Link>
           </div>
-          <p className="text-white/90 text-sm mt-4">*Valid for new customers only. Cannot combine with other offers.</p>
+          <p className="text-white/90 text-sm mt-4">
+            *Valid for new customers only. Cannot combine with other offers.
+          </p>
         </div>
       </section>
     </div>

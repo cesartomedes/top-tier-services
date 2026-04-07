@@ -6,89 +6,38 @@ import {
   FaClock,
   FaMoneyBillWave,
   FaCalendarCheck,
-  FaTrophy,
-  FaGem,
-  FaMedal,
+  FaEnvelope,
+  FaUser,
+  FaPhone,
 } from "react-icons/fa";
+import { useState } from "react";
 
 const Pricing = () => {
-  const pricingPlans = [
-    {
-      name: "Silver",
-      icon: <FaMedal className="text-5xl" />,
-      color: "from-gray-400 to-gray-500",
-      borderColor: "border-gray-300",
-      bgColor: "bg-gray-50",
-      buttonColor: "bg-gray-600 hover:bg-gray-700",
-      description: "Essential gutter protection for budget-conscious homeowners",
-      features: [
-        "Standard gutter guard system",
-        "10-year warranty",
-        "Basic leaf and debris protection",
-        "Professional installation",
-        "Free initial inspection",
-        "Standard aluminum material",
-      ],
-      popular: false,
-      bestFor: "Small to medium homes with moderate debris",
-    },
-    {
-      name: "Gold",
-      icon: <FaStar className="text-5xl" />,
-      color: "from-yellow-500 to-yellow-600",
-      borderColor: "border-yellow-500",
-      bgColor: "bg-white",
-      buttonColor: "bg-yellow-600 hover:bg-yellow-700",
-      description: "Our most popular package with premium features",
-      features: [
-        "Premium micro-mesh gutter guards",
-        "25-year warranty",
-        "Advanced debris protection",
-        "Professional installation by certified technicians",
-        "Free inspection and cleaning",
-        "Premium stainless steel material",
-        "Ice dam prevention",
-        "Priority scheduling",
-      ],
-      popular: true,
-      bestFor: "Most homes - best value and protection",
-    },
-    {
-      name: "Platinum",
-      icon: <FaTrophy className="text-5xl" />,
-      color: "from-blue-600 to-purple-600",
-      borderColor: "border-purple-500",
-      bgColor: "bg-white",
-      buttonColor: "bg-purple-700 hover:bg-purple-800",
-      description: "Maximum protection with lifetime coverage",
-      features: [
-        "Commercial-grade gutter guard system",
-        "Lifetime warranty (transferable)",
-        "Complete debris and pest protection",
-        "Premium installation by master technicians",
-        "Free annual inspection and maintenance",
-        "Heavy-duty stainless steel construction",
-        "Ice dam prevention system",
-        "24/7 priority support",
-        "10-year transferable warranty",
-        "Free spring sale discount applied",
-      ],
-      popular: false,
-      bestFor: "Large homes and premium properties",
-    },
-  ];
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
 
-  const compareFeatures = [
-    { feature: "Gutter Guard Material", silver: "Standard Aluminum", gold: "Premium Stainless Steel", platinum: "Heavy-Duty Stainless Steel" },
-    { feature: "Debris Protection", silver: "Basic Leaf Protection", gold: "Advanced Micro-Mesh", platinum: "Complete Protection" },
-    { feature: "Warranty", silver: "10 Years", gold: "25 Years", platinum: "Lifetime (Transferable)" },
-    { feature: "Free Inspection", silver: "✓", gold: "✓", platinum: "✓" },
-    { feature: "Professional Installation", silver: "✓", gold: "Certified Technicians", platinum: "Master Technicians" },
-    { feature: "Ice Dam Prevention", silver: "Optional", gold: "✓", platinum: "✓" },
-    { feature: "Annual Maintenance", silver: "❌", gold: "❌", platinum: "✓ Free" },
-    { feature: "Priority Support", silver: "❌", gold: "❌", platinum: "24/7 Priority" },
-    { feature: "Transferable Warranty", silver: "❌", gold: "❌", platinum: "✓" },
-  ];
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Quote request submitted:", formData);
+    setFormSubmitted(true);
+    setTimeout(() => {
+      setFormSubmitted(false);
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    }, 3000);
+  };
 
   return (
     <div>
@@ -96,14 +45,14 @@ const Pricing = () => {
       <section className="relative bg-primary text-white py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/80"></div>
         <div className="relative container-custom text-center z-10">
-          <h1 className="mb-4 animate-fadeInDown">Simple, Transparent Pricing</h1>
+          <h1 className="mb-4 animate-fadeInDown">Request a Quote</h1>
           <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto animate-fadeInUp">
-            Choose the Perfect Plan for Your Home
+            Get a Personalized Quote for Your Home
           </p>
           <div className="max-w-2xl mx-auto">
             <p className="text-lg text-white/90 leading-relaxed">
-              All plans include professional installation, free inspection, 
-              and our commitment to quality service. Contact us for exact pricing.
+              Every home is unique. Contact us today for a custom quote 
+              tailored to your specific needs and budget.
             </p>
           </div>
           <div className="mt-8">
@@ -111,93 +60,119 @@ const Pricing = () => {
               to="/inspection"
               className="inline-block bg-white text-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg"
             >
-              Get Free Quote
+              Schedule Free Inspection
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Pricing Cards */}
+      {/* Quote Form Section */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {pricingPlans.map((plan, index) => (
-              <div
-                key={index}
-                className={`relative rounded-2xl overflow-hidden shadow-xl transition-all duration-300 transform hover:-translate-y-2 ${
-                  plan.popular ? "ring-2 ring-yellow-500 scale-105 md:scale-105 z-10" : ""
-                }`}
-              >
-                {plan.popular && (
-                  <div className="absolute top-0 right-0 bg-yellow-500 text-gray-900 px-4 py-1 rounded-bl-lg text-sm font-bold z-10">
-                    Most Popular
-                  </div>
-                )}
-                <div className={`bg-gradient-to-br ${plan.color} p-6 text-white text-center`}>
-                  <div className="flex justify-center mb-4">{plan.icon}</div>
-                  <h3 className="text-3xl font-bold mb-2">{plan.name}</h3>
-                  <p className="text-white/90 text-sm">{plan.description}</p>
-                </div>
-                <div className={`${plan.bgColor} p-6`}>
-                  <div className="mb-6">
-                    <p className="text-gray-600 text-sm mb-2">Best For:</p>
-                    <p className="font-semibold text-gray-800">{plan.bestFor}</p>
-                  </div>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2 text-gray-700">
-                        <FaCheckCircle className="text-green-500 text-sm mt-0.5 flex-shrink-0" />
-                        <span className="text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    to="/inspection"
-                    className={`block text-center text-white ${plan.buttonColor} px-6 py-3 rounded-lg font-semibold transition-all duration-200`}
-                  >
-                    Get Free Quote
-                  </Link>
-                  <p className="text-xs text-gray-500 text-center mt-3">
-                    Call for exact pricing
-                  </p>
-                </div>
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <FaMoneyBillWave className="text-primary text-5xl mx-auto mb-3" />
+              <h2 className="text-primary mb-4">Request Your Free Quote</h2>
+              <p className="text-gray-600">
+                Fill out the form below and we'll contact you within 24 hours with a personalized quote
+              </p>
+            </div>
+
+            {formSubmitted ? (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg text-center">
+                <FaCheckCircle className="text-3xl mx-auto mb-2" />
+                <p className="font-semibold">Thank you for your request!</p>
+                <p>We'll contact you shortly with your personalized quote.</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            ) : (
+              <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-lg">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+                      Full Name *
+                    </label>
+                    <div className="relative">
+                      <FaUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                      Email Address *
+                    </label>
+                    <div className="relative">
+                      <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </div>
+                </div>
 
-      {/* Comparison Table */}
-      <section className="py-16 bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-primary mb-4">Compare Plans</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              See what each package includes and find the perfect fit for your home
-            </p>
-          </div>
+                <div className="mb-6">
+                  <label htmlFor="phone" className="block text-gray-700 font-semibold mb-2">
+                    Phone Number *
+                  </label>
+                  <div className="relative">
+                    <FaPhone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                      placeholder="(336) 350-9825"
+                    />
+                  </div>
+                </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-gray-100">
-                  <th className="p-4 text-left text-gray-800 font-semibold">Feature</th>
-                  <th className="p-4 text-center text-gray-800 font-semibold">Silver</th>
-                  <th className="p-4 text-center text-gray-800 font-semibold bg-yellow-50">Gold</th>
-                  <th className="p-4 text-center text-gray-800 font-semibold">Platinum</th>
-                </tr>
-              </thead>
-              <tbody>
-                {compareFeatures.map((item, index) => (
-                  <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                    <td className="p-4 text-gray-700 font-medium">{item.feature}</td>
-                    <td className="p-4 text-center text-gray-600">{item.silver}</td>
-                    <td className="p-4 text-center text-gray-600 bg-yellow-50/30">{item.gold}</td>
-                    <td className="p-4 text-center text-gray-600">{item.platinum}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                <div className="mb-6">
+                  <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
+                    Project Details
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="4"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary"
+                    placeholder="Tell us about your gutter needs..."
+                  ></textarea>
+                </div>
+
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                  >
+                    Request Free Quote
+                  </button>
+                </div>
+
+                <p className="text-xs text-gray-500 text-center mt-4">
+                  By submitting this form, you agree to be contacted by Top Tier Home Services.
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </section>
@@ -206,7 +181,7 @@ const Pricing = () => {
       <section className="py-16 bg-primary text-white">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-white mb-4">Why Choose Top Tier Services?</h2>
+            <h2 className="text-white mb-4">Why Choose Top Tier Home Services?</h2>
             <p className="text-white/90 text-lg max-w-2xl mx-auto">
               Experience the difference with professional service and quality workmanship
             </p>
@@ -216,8 +191,8 @@ const Pricing = () => {
               <div className="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-3xl">
                 <FaShieldAlt />
               </div>
-              <h3 className="text-xl font-semibold mb-2">40-Year Warranty</h3>
-              <p className="text-white/80 text-sm">Comprehensive warranty coverage on all gutter guard installations</p>
+              <h3 className="text-xl font-semibold mb-2">Lifetime Warranty</h3>
+              <p className="text-white/80 text-sm">Comprehensive lifetime warranty coverage on all gutter guard installations</p>
             </div>
             <div className="text-center">
               <div className="bg-white/10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4 text-3xl">
@@ -250,7 +225,7 @@ const Pricing = () => {
           <div className="text-center mb-12">
             <h2 className="text-primary mb-4">Frequently Asked Questions</h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Have questions about our pricing and packages?
+              Have questions about our pricing and services?
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -263,12 +238,12 @@ const Pricing = () => {
               <p className="text-gray-600">Yes! We offer flexible financing options to make your gutter protection affordable. Ask about our payment plans.</p>
             </div>
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="font-semibold text-lg text-primary mb-2">Can I upgrade my plan later?</h3>
-              <p className="text-gray-600">Absolutely! You can upgrade from Silver to Gold or Platinum at any time. Contact us for upgrade pricing.</p>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-md">
               <h3 className="font-semibold text-lg text-primary mb-2">What's included in the free inspection?</h3>
               <p className="text-gray-600">Our comprehensive inspection includes evaluating your current gutters, measuring your home, and providing a detailed recommendation for your specific needs.</p>
+            </div>
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="font-semibold text-lg text-primary mb-2">How long does installation take?</h3>
+              <p className="text-gray-600">Most residential installations are completed in 1 day. We'll provide a timeline during your free inspection.</p>
             </div>
           </div>
         </div>
