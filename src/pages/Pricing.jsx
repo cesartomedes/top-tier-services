@@ -21,6 +21,8 @@ const Pricing = () => {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -29,14 +31,43 @@ const Pricing = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Quote request submitted:", formData);
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    }, 3000);
+    setIsLoading(true);
+    setErrorMessage("");
+    
+    try {
+      const response = await fetch('/api/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form_type: 'quote',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({ name: "", email: "", phone: "", message: "" });
+        }, 3000);
+      } else {
+        setErrorMessage(result.message || "Error sending request. Please try again or call us.");
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage("Network error. Please try again or call us directly.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -86,6 +117,11 @@ const Pricing = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-lg">
+                {errorMessage && (
+                  <div className="mb-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    {errorMessage}
+                  </div>
+                )}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
@@ -162,9 +198,14 @@ const Pricing = () => {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="bg-primary text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                    disabled={isLoading}
+                    className={`bg-primary text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg ${
+                      isLoading 
+                        ? 'opacity-70 cursor-not-allowed' 
+                        : 'hover:bg-opacity-90 transform hover:scale-105'
+                    }`}
                   >
-                    Request Free Quote
+                    {isLoading ? 'Sending...' : 'Request Free Quote'}
                   </button>
                 </div>
 

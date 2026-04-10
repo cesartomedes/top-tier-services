@@ -26,6 +26,8 @@ const Inspection = () => {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -34,22 +36,54 @@ const Inspection = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Inspection request submitted:", formData);
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        address: "",
-        preferredDate: "",
-        preferredTime: "",
-        message: "",
+    setIsLoading(true);
+    setErrorMessage("");
+    
+    try {
+      const response = await fetch('/api/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form_type: 'inspection',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          address: formData.address,
+          preferredDate: formData.preferredDate,
+          preferredTime: formData.preferredTime,
+          message: formData.message,
+        }),
       });
-    }, 3000);
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            address: "",
+            preferredDate: "",
+            preferredTime: "",
+            message: "",
+          });
+        }, 3000);
+      } else {
+        setErrorMessage(result.message || "Error sending request. Please try again or call us.");
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage("Network error. Please try again or call us directly.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Team photos (placeholders - you can replace with actual images)
@@ -125,6 +159,11 @@ const Inspection = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    {errorMessage && (
+                      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-sm">
+                        {errorMessage}
+                      </div>
+                    )}
                     <div>
                       <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
                         Full Name *
@@ -255,9 +294,14 @@ const Inspection = () => {
 
                     <button
                       type="submit"
-                      className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                      disabled={isLoading}
+                      className={`w-full bg-primary text-white py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg ${
+                        isLoading 
+                          ? 'opacity-70 cursor-not-allowed' 
+                          : 'hover:bg-opacity-90 transform hover:scale-105'
+                      }`}
                     >
-                      Schedule Free Inspection
+                      {isLoading ? 'Sending...' : 'Schedule Free Inspection'}
                     </button>
 
                     <p className="text-xs text-gray-500 text-center">

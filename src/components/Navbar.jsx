@@ -18,12 +18,27 @@ const Navbar = () => {
     <nav className="bg-primary text-white shadow-lg sticky top-0 z-50">
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
-          {/* Logo - Text in Uppercase */}
+          {/* Logo - Más grande */}
           <Link 
             to="/" 
-            className="text-2xl font-bold hover:opacity-90 transition-opacity tracking-wide"
+            className="hover:opacity-90 transition-opacity flex items-center"
           >
-            TOP TIER HOME SERVICES
+            <img 
+              src="/logo2.png" 
+              alt="Top Tier Home Services Logo" 
+              className="h-16 md:h-19 w-auto object-contain"
+              onError={(e) => {
+                console.log("Logo not found, showing text fallback");
+                e.target.style.display = 'none';
+                const parent = e.target.parentElement;
+                if (parent) {
+                  const fallback = document.createElement('span');
+                  fallback.className = "text-2xl md:text-3xl font-bold tracking-wide";
+                  fallback.textContent = "TOP TIER HOME SERVICES";
+                  parent.appendChild(fallback);
+                }
+              }}
+            />
           </Link>
 
           {/* Rating Badge */}

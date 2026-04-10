@@ -17,15 +17,46 @@ const Contact = () => {
   });
 
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", message: "" });
-    }, 3000);
+    setIsLoading(true);
+    setErrorMessage("");
+    
+    try {
+      const response = await fetch('/api/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          form_type: 'contact',
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setFormData({ name: "", email: "", phone: "", message: "" });
+        }, 3000);
+      } else {
+        setErrorMessage(result.message || "Error sending message. Please try again or call us.");
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setErrorMessage("Network error. Please try again or call us directly.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -141,6 +172,11 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
+                    {errorMessage && (
+                      <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-sm">
+                        {errorMessage}
+                      </div>
+                    )}
                     <div>
                       <label
                         htmlFor="name"
@@ -214,9 +250,14 @@ const Contact = () => {
                     </div>
                     <button
                       type="submit"
-                      className="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transform hover:scale-105 transition-all duration-200 shadow-lg"
+                      disabled={isLoading}
+                      className={`w-full bg-primary text-white py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg ${
+                        isLoading 
+                          ? 'opacity-70 cursor-not-allowed' 
+                          : 'hover:bg-opacity-90 transform hover:scale-105'
+                      }`}
                     >
-                      Send Message
+                      {isLoading ? 'Sending...' : 'Send Message'}
                     </button>
                   </form>
                 )}
@@ -295,24 +336,6 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-
-              {/* Service Areas */}
-              {/* <div className="bg-white rounded-2xl shadow-xl p-6 mb-6">
-                <h3 className="text-xl font-bold text-primary mb-4">
-                  Service Areas
-                </h3>
-                <div className="grid grid-cols-2 gap-2">
-                  {serviceAreas.map((area, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center gap-2 text-gray-600 text-sm"
-                    >
-                      <FaCheckCircle className="text-green-500 text-xs" />
-                      <span>{area}</span>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
 
               {/* Trust Badge */}
               <div className="bg-primary rounded-2xl shadow-xl p-6 text-white text-center">
