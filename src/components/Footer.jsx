@@ -78,7 +78,7 @@ const Footer = () => {
                   href="mailto:Contact@TTHservices.com"
                   className="text-gray-300 hover:text-primary transition-colors text-sm break-all"
                 >
-                  Contact@TTHservices.com
+                  contact@tthservices.com
                 </a>
               </div>
               <div className="flex items-center gap-3">

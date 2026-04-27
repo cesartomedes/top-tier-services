@@ -76,7 +76,7 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      info: "Contact@TTHservices.com",
+      info: "contact@tthservices.com",
       link: "mailto:Contact@TTHservices.com",
     },
     {

@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <nav className="bg-primary text-white shadow-lg sticky top-0 z-50">
       <div className="container-custom">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24 md:h-28">
           {/* Logo - Más grande */}
           <Link 
             to="/" 
@@ -26,14 +26,14 @@ const Navbar = () => {
             <img 
               src="/logo2.png" 
               alt="Top Tier Home Services Logo" 
-              className="h-16 md:h-19 w-auto object-contain"
+              className="h-16 md:h-24 w-auto object-contain"
               onError={(e) => {
                 console.log("Logo not found, showing text fallback");
                 e.target.style.display = 'none';
                 const parent = e.target.parentElement;
                 if (parent) {
                   const fallback = document.createElement('span');
-                  fallback.className = "text-2xl md:text-3xl font-bold tracking-wide";
+                  fallback.className = "text-xl md:text-3xl font-bold tracking-wide";
                   fallback.textContent = "TOP TIER HOME SERVICES";
                   parent.appendChild(fallback);
                 }
@@ -49,13 +49,13 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `hover:text-gray-300 transition-colors duration-200 text-sm font-medium ${
+                  `hover:text-gray-300 transition-colors duration-200 text-base font-medium ${
                     isActive ? 'border-b-2 border-white' : ''
                   }`
                 }
@@ -88,7 +88,7 @@ const Navbar = () => {
                 to={link.path}
                 onClick={() => setIsOpen(false)}
                 className={({ isActive }) =>
-                  `block py-2 text-center hover:text-gray-300 transition-colors duration-200 ${
+                  `block py-3 text-center hover:text-gray-300 transition-colors duration-200 text-base ${
                     isActive ? 'text-gray-300' : ''
                   }`
                 }

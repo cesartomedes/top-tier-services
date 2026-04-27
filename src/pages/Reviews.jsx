@@ -112,13 +112,21 @@ const Reviews = () => {
         <div className="container-custom text-center">
           <div className="bg-white rounded-2xl p-8 max-w-2xl mx-auto shadow-2xl">
             <FaMoneyBillWave className="text-5xl text-yellow-500 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">🌷 Spring Sale! 🌷</h2>
-            <p className="text-xl text-gray-600 mb-2">Save 20% on All Gutter Guard Installations</p>
-            <p className="text-gray-500 mb-4">Limited time offer - Call today!</p>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              🌷 Spring Sale! 🌷
+            </h2>
+            <p className="text-xl text-gray-600 mb-2">
+              Save 20% on All Gutter Guard Installations
+            </p>
+            <p className="text-gray-500 mb-4">
+              Limited time offer - Call today!
+            </p>
             <div className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-bold text-lg">
               Use Code: SPRING20
             </div>
-            <p className="text-xs text-gray-400 mt-4">*Valid for new customers only. Cannot combine with other offers.</p>
+            <p className="text-xs text-gray-400 mt-4">
+              *Valid for new customers only. Cannot combine with other offers.
+            </p>
           </div>
         </div>
       </section>
@@ -151,7 +159,9 @@ const Reviews = () => {
               >
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h3 className="font-semibold text-gray-800 text-lg">{review.name}</h3>
+                    <h3 className="font-semibold text-gray-800 text-lg">
+                      {review.name}
+                    </h3>
                     <p className="text-sm text-gray-500">{review.location}</p>
                     <div className="flex gap-1 mt-1">
                       {[...Array(review.rating)].map((_, i) => (
@@ -162,7 +172,9 @@ const Reviews = () => {
                   <FaGoogle className="text-primary text-2xl" />
                 </div>
                 <FaQuoteLeft className="text-primary/20 text-2xl mb-2" />
-                <p className="text-gray-700 mb-3 italic leading-relaxed">"{review.text}"</p>
+                <p className="text-gray-700 mb-3 italic leading-relaxed">
+                  "{review.text}"
+                </p>
                 <p className="text-xs text-gray-400">{review.date}</p>
               </div>
             ))}
@@ -170,7 +182,7 @@ const Reviews = () => {
 
           <div className="text-center mt-10">
             <a
-              href="https://g.page/r/your-google-business/review"
+              href="https://share.google/SAr7VU0QrfVEh6nmf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-200"
@@ -188,9 +200,12 @@ const Reviews = () => {
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-10">
               <FaCalendarCheck className="text-primary text-5xl mx-auto mb-3" />
-              <h2 className="text-primary mb-4">Schedule Your Free Inspection</h2>
+              <h2 className="text-primary mb-4">
+                Schedule Your Free Inspection
+              </h2>
               <p className="text-gray-600">
-                Fill out the form below and we'll contact you within 24 hours to schedule your free, no-obligation inspection
+                Fill out the form below and we'll contact you within 24 hours to
+                schedule your free, no-obligation inspection
               </p>
             </div>
 
@@ -198,13 +213,21 @@ const Reviews = () => {
               <div className="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg text-center">
                 <FaCheckCircle className="text-3xl mx-auto mb-2" />
                 <p className="font-semibold">Thank you for your request!</p>
-                <p>We'll contact you shortly to schedule your free inspection.</p>
+                <p>
+                  We'll contact you shortly to schedule your free inspection.
+                </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="bg-gray-50 rounded-2xl p-8 shadow-lg">
+              <form
+                onSubmit={handleSubmit}
+                className="bg-gray-50 rounded-2xl p-8 shadow-lg"
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+                    <label
+                      htmlFor="name"
+                      className="block text-gray-700 font-semibold mb-2"
+                    >
                       Full Name *
                     </label>
                     <div className="relative">
@@ -222,7 +245,10 @@ const Reviews = () => {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                    <label
+                      htmlFor="email"
+                      className="block text-gray-700 font-semibold mb-2"
+                    >
                       Email Address *
                     </label>
                     <div className="relative">
@@ -242,7 +268,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="phone" className="block text-gray-700 font-semibold mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-gray-700 font-semibold mb-2"
+                  >
                     Phone Number *
                   </label>
                   <div className="relative">
@@ -261,7 +290,10 @@ const Reviews = () => {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-700 font-semibold mb-2"
+                  >
                     Message (Optional)
                   </label>
                   <textarea
@@ -285,7 +317,8 @@ const Reviews = () => {
                 </div>
 
                 <p className="text-xs text-gray-500 text-center mt-4">
-                  By submitting this form, you agree to be contacted by Top Tier Home Services.
+                  By submitting this form, you agree to be contacted by Top Tier
+                  Home Services.
                 </p>
               </form>
             )}
